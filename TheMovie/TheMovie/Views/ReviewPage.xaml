@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TheMovie.Views.ReviewPage"
+                          xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:controls="clr-namespace:TheMovie.Controls"
+             Title="Reviews">
+
+    <controls:CardView>
+                <ListView HasUnevenRows="True" RowHeight="200" x:Name="movieReviewslistView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                     <ViewCell>
+              <ViewCell.View>
+                <Grid>
+                     <Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+                         			<ColumnDefinition Width="*" />
+
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30" />
+			<RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+
+		</Grid.RowDefinitions>
+                  <Label VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding RatingStars}" />
+                  <Label VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Text="{Binding ReviewTitle}"  />
+                  <Image  Margin="15,5,5,5" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Source= "{Binding ReviewCapturedImage}" Aspect="AspectFill"></Image>
+                   <Label VerticalOptions="CenterAndExpand" MaxLines="4" LineBreakMode="WordWrap" Grid.ColumnSpan="4" Grid.Column = "0" Grid.Row="2" Text="{Binding Description}"   />
+
+                </Grid>
+              </ViewCell.View>          
+             </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            </controls:CardView>
+</ContentPage>

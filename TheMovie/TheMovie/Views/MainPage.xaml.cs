@@ -1,0 +1,32 @@
+﻿using System;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace TheMovie.Views
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();            
+            
+            ItemsListView.ItemSelected += (sender, e) => {
+                // Manually deselect item
+                ((ListView)sender).SelectedItem = null;
+            };
+            
+        }
+
+
+        void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new FavoritesPage());
+
+        }
+        void OnButton_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new ReviewPage());
+        }
+    }
+}
